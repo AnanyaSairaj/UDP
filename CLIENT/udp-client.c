@@ -47,14 +47,12 @@ int main( int argc, char *argv[])//accepting arguments from the terminal
     }
     
     struct sockaddr_in send_addr, from_addr;
-    struct stat st;
     struct frame_a frame;
     struct timeval t_out = {0, 0};
     
    
     long int n = 0;
     long int  len = 0;
-    off_t f_size = 0;
     long int ack_num = 0;
     int sock, ack_recv = 0;
 	
@@ -170,7 +168,7 @@ for (i=1; i<=total_frame;i++)
 
 {   if (access(filename, F_OK)==0){
 
-   int  resend_frame= 0, drop_frame=0,t_out_flag=0;
+   int  resend_frame= 0,t_out_flag=0;
    long int i=1 , total_frame=0;
    
   fptr=fopen(filename,"rb");
@@ -298,7 +296,7 @@ setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char *)&t_out, sizeof(struct timeval)
      if (access(filename, F_OK)==0)//check if the file has required access
      {
      
-   n = recvfrom(sock, ack_recv,sizeof(ack_recv), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len);
+   n = recvfrom(sock, &(ack_recv),sizeof(ack_recv), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len);
    
   
    
