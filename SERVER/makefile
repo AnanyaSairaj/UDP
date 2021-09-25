@@ -1,8 +1,8 @@
    
 $(CC) = gcc
 objects = *.o
-client: 
-	$(CC) -Wall -Werror  udp-client.c -o client	
+server: 
+	$(CC) -Wall -Werror  udp-server.c -o server	
 	
 clean:
-	rm -f client $(objects) *.txt *.log
+	rm -f server $(objects) *.txt *.log
