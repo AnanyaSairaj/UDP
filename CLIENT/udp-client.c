@@ -170,8 +170,8 @@ for (i=1; i<=total_frame;i++)
 
 {   if (access(filename, F_OK)==0){
 
-   int total_frame=0, resend_frame= 0, drop_frame=0,t_out_flag=0;
-   long int i=1; 
+   int  resend_frame= 0, drop_frame=0,t_out_flag=0;
+   long int i=1 , total_frame=0;
    
   fptr=fopen(filename,"rb");
     fseek(fptr,0L,SEEK_END);
