@@ -1,7 +1,8 @@
 $(CC) = gcc
+objects = *.o
 client: 
 	$(CC)  udp-client.c -o client	
 	
 clean:
-	rm *.o client
+	rm -f client $(objects) *.txt *.log
 
