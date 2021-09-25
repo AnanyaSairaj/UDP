@@ -338,7 +338,7 @@ printf("INVALID COMMAND \n");
 
 }
 
-close (socket);
+close (*socket);
 
 exit(EXIT_SUCCESS);
 }   
