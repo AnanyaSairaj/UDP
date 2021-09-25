@@ -54,7 +54,7 @@ int main( int argc, char *argv[])//accepting arguments from the terminal
     long int n = 0;
     long int  len = 0;
     long int ack_num = 0;
-    int sock, ack_recv = 0;
+    int sock, ack_recv = 0,,drop_frame=0;
 	
 	
 	
@@ -304,7 +304,7 @@ setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char *)&t_out, sizeof(struct timeval)
      // {printf("Error in ack of files to be deleted");
     //}
     
-    if(n=1)
+    if(n==1)
        
      {  printf("CLIENT: THe file has been deleted");}
      
@@ -336,7 +336,7 @@ printf("INVALID COMMAND \n");
 
 }
 
-close(socket);
+close( int socket);
 
 exit(EXIT_SUCCESS);
 }   
