@@ -48,7 +48,7 @@ void printError( char *msg)//declare the errors
   exit(0);
   }
   
-int main( int argc, char **argv[])//accept the arguments
+int main( int argc, char *argv[])//accept the arguments
 {
     if (argc<2)
   { fprintf(stderr,"No port error\n");//if arguments are not valid print errors
@@ -365,7 +365,7 @@ int main( int argc, char **argv[])//accept the arguments
   
   else if (strcmp(cmdreceive,"exit")==0){
   
-  close(socket);
+  close(sock);
   exit(EXIT_SUCCESS);//successfully exits 
   }
   
