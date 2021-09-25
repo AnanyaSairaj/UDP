@@ -54,7 +54,7 @@ int main( int argc, char *argv[])//accepting arguments from the terminal
     long int n = 0;
     long int  len = 0;
     long int ack_num = 0;
-    int sock, ack_recv = 0,,drop_frame=0;
+    int sock, ack_recv = 0,drop_frame=0;
 	
 	
 	
@@ -336,7 +336,7 @@ printf("INVALID COMMAND \n");
 
 }
 
-close( int socket);
+close( * int socket);
 
 exit(EXIT_SUCCESS);
 }   
