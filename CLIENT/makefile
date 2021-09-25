@@ -1,5 +1,5 @@
 $(CC) = gcc
-client: c
+client: 
 	$(CC)  udp-client.c -o client	
 	
 clean:
