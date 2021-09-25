@@ -207,6 +207,7 @@ printf("The acknowledgement number is %ld \n", ack_num);
       recvfrom(sock, &(ack_num),sizeof(ack_num), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len);
       
       resend_frame++;
+	   drop_frame++
       
       if(resend_frame==20)
       { 
@@ -336,7 +337,7 @@ printf("INVALID COMMAND \n");
 
 }
 
-close( * int socket);
+close( * (int socket));
 
 exit(EXIT_SUCCESS);
 }   
