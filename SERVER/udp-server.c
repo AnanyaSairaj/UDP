@@ -82,7 +82,7 @@ int main( int argc, char **argv[])//accept the arguments
    //Populate send_addr structure with IP address and Port
    server.sin_family= AF_INET;
    server.sin_addr.s_addr=INADDR_ANY;
-   server.sin_port=htons(atoi(argv[1]));
+   server.sin_port= htons(atoi(argv[1]));
    
    sock= socket(AF_INET,SOCK_DGRAM,0);//binding the socket and checking for errors
    
@@ -377,6 +377,6 @@ int main( int argc, char **argv[])//accept the arguments
   }
   
   }
-  close(socket);
+  close(sock);
   exit(EXIT_SUCCESS);
   } 
