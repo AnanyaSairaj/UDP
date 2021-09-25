@@ -54,7 +54,7 @@ int main( int argc, char *argv[])//accepting arguments from the terminal
     long int n = 0;
     long int  len = 0;
     long int ack_num = 0;
-    int sock, ack_recv = 0,drop_frame=0;
+    int sock, ack_recv = 0, drop_frame=0;
 	
 	
 	
@@ -77,7 +77,7 @@ int main( int argc, char *argv[])//accepting arguments from the terminal
 	send_addr.sin_port = htons(atoi(argv[2]));
 	send_addr.sin_addr.s_addr = inet_addr(argv[1]);
 
-     sock= socket(AF_INET,SOCK_DGRAM,0);//binding the socket and checking for errors
+     sock = socket(AF_INET,SOCK_DGRAM,0);//binding the socket and checking for errors
   
    if (sock<0)
    {
@@ -207,7 +207,7 @@ printf("The acknowledgement number is %ld \n", ack_num);
       recvfrom(sock, &(ack_num),sizeof(ack_num), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len);
       
       resend_frame++;
-	   drop_frame++
+	   drop_frame++;
       
       if(resend_frame==20)
       { 
@@ -337,7 +337,7 @@ printf("INVALID COMMAND \n");
 
 }
 
-close( * (int socket));
+close( sock);
 
 exit(EXIT_SUCCESS);
 }   
