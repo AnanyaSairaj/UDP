@@ -173,7 +173,7 @@ for (i=1; i<=total_frame;i++)
    int total_frame=0, resend_frame= 0, drop_frame=0,t_out_flag=0;
    long int i=1; 
    
-  fptr=fopen(filenamereceive,"rb");
+  fptr=fopen(filename,"rb");
     fseek(fptr,0L,SEEK_END);
     long int f_size= ftell(fptr);//get the file size
     rewind(fptr);//rewind the pointer back to the start of the file
