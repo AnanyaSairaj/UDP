@@ -297,20 +297,10 @@ setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char *)&t_out, sizeof(struct timeval)
      if (access(filename, F_OK)==0)//check if the file has required access
      {
      
-   n = recvfrom(sock, &(ack_recv),sizeof(ack_recv), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len);
+   n = recvfrom(sock, &(ack_recv),sizeof(ack_recv), 0, (struct sockaddr *) &from_addr, (socklen_t *)&len)
    
-  
-   
-   //if(n<0)
-     // {printf("Error in ack of files to be deleted");
-    //}
-    
-    if(n==1)
-	    printf("CLIENT: THe file has been deleted");
-     
-     
-     else 
-	     printf("filename is invalid");
+	    printf("CLIENT: The file has been deleted");
+
        }
     
       
