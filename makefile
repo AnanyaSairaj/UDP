@@ -1,7 +1,16 @@
-all: client server
+CC = cc
 
-client:
-       g++ -o client udp-client.c
+CFLAGS  = -g -Wall  
 
-server:
-       g++ -o server udp-server.c
+TARGET = udp-server udp-client 
+
+all: $(TARGET)
+	
+udp-server: udp-server.c
+	$(CC) $(CFLAGS) -o udp-server udp-server.c 
+
+udp-client: udp-client.c
+	$(CC) $(CFLAGS) -o udp-client udp-client.c 
+
+clean:
+	$(RM) $(TARGET)
