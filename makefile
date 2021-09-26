@@ -1,16 +1,6 @@
-CC = cc
+SUBDIRS = SERVER CLIENT
 
-CFLAGS  = -g -Wall -Werror 
-
-TARGET = server client 
-
-all: $(TARGET)
-	
-server:
-	$(CC) $(CFLAGS) -o server $(SERVER)/udp-server.c 
-
-client:$ 
-	$(CC) $(CFLAGS) -o client $(CLIENT)/udp-client.c 
-
-clean:
-	$(RM) $(TARGET)
+subdirs:
+        for dir in $(SUBDIRS); do \
+          $(MAKE) -C $$dir; \
+        done
