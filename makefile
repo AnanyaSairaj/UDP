@@ -1,8 +1,8 @@
 TARGET= client server 
 normal: $(TARGET)
-client: client.c
+client: udp-client.c
     gcc -Wall udp-client.c -o client
-server: server.c
+server: udp-server.c
     gcc -Wall udp-server.c -o server
 clean:
     $(RM) $(TARGET)
