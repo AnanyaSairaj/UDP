@@ -1,16 +1,16 @@
 CC = cc
 
-CFLAGS  = -g -Wall  
+CFLAGS  = -g -Wall -Werror 
 
-TARGET = udp-server udp-client 
+TARGET = server client 
 
 all: $(TARGET)
 	
 server:(SERVER)/udp-server.c
-	$(CC) $(CFLAGS) -o udp-server udp-server.c 
+	$(CC) $(CFLAGS) -o server udp-server.c 
 
 client:(CLIENT)/udp-client.c 
-	$(CC) $(CFLAGS) -o udp-client udp-client.c 
+	$(CC) $(CFLAGS) -o client udp-client.c 
 
 clean:
 	$(RM) $(TARGET)
