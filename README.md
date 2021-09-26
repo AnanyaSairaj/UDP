@@ -11,35 +11,41 @@ Five commands have been implemented:
 * EXIT-Both exit the loop.
 
 ## Reliability Implementation:
-To implement the reliabilty required of us to the inherently unreliable UDP, we use the infamous STOP-AND-WAIT protocol. Though it is time consuming, it is simple and robust to implemenent. To explain the implementation let us take the example of the get function. The client side makes a request to the server to get the file. The server side receives the request and first calculates the number of frames/packets to be sent by dividing the overall file size with the buffer size. After it gets the total number of frames to be sent, it sends that to the client which sends an acknowledgement back.It then checks if the acknowledgement received is valid and if not valid it retransmits till it hits a match or crosses the limit for retransmission. Then it transmit the frame one by one with an iteration comparing it to the total frames calculated ,receives the acknowledgement and retransmits if the frame id does not match.The vice versa is applicable for put. This is how the stop and wait protocol is implemented.
+To implement the reliabilty required of us to the inherently unreliable UDP, we use the infamous STOP-AND-WAIT protocol. Though it is time consuming, it is simple and robust to implemenent. To explain the implementation let us take the example of the get case.
+1-In the get part the client side makes a request to the server to get the file. The server side receives the request and first calculates the number of frames/packets to be sent by dividing the overall file size with the buffer size.
+2-After it gets the total number of frames to be sent, it sends that to the client which sends an acknowledgement back.It then checks if the acknowledgement received is valid and if not valid it retransmits till it hits a match or crosses the limit for retransmission. 
+3-Then it transmit the frame one by one with an iteration comparing it to the total frames calculated ,receives the acknowledgement and retransmits if the frame id does not match.
+4-It breaks out of the loop if the number of time resent exceeds the limit specified.
+5-If the total number of frames have been sent and the acknowledgemnts for them have been received then it displays a "SUCCESSFULLY SENT" message.
+6- Vice versa is applicable for the put case
+
+This is how basic reliablility is implemented for the file transfer using the  STOP-AND-WAIT protocol.
 
 ## Instructions
-The makefile stores object files in *obj/* and executables in [run](https://github.com/nimbid/Reliable-UDP-Based-File-Transfer/tree/main/run). Run the following command in the directory where you clone this repo to compile the code.
+The makefile runs a phony recursive loop to the subdirectories to compile them. Running the following command will take you into the specified subdirectories and run their respective makefiles and hence create the executables.
 ```
 make
 ```
 Once the compilation is done, the server and the client executables can be run in the following manner:
+
 ### Server
 ```
-./filepath/run/uftp_server [Port Number] 
+cd [SERVER]
+./server [PORT NUMBER]
 ```
 *Port Number* must be greater than 5000.
 ### Client
 ```
-./filepath/run/uftp_client [Server IP Address] [Server Port Number]
+cd [CLIENT]
+./[Server IP Address] [Server Port Number]
 ```
 ### Running commands on the client
-**NOTE**: In the above commands, 'filepath' must be replaced by the path on your system, based on your current directory. This is especially important for the *LS* command as the server lists its current directory based on where it is running (where it was called from).
+
 ## Results
 The client and server have been tested to reliably transfer files up to 100 MB in a 1% packet loss environment.
-### Creating large files for testing
-The following command can be run to create an arbitrary file of a size of your choosing.
-```
-dd if=/dev/zero of=testfile bs=1024 count=102400
-```
-The variables *bs* and *count* can be modified to create a file size as large or small as you want.
+
 ## Authors
-* Nimish Bhide
+* Ananya Sairaj
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
 
