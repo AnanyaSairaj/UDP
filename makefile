@@ -1,6 +1,6 @@
-SUBDIRS = SERVER CLIENT
+.PHONY: all clean
 
-subdirs:
+all clean:
         for dir in $(SUBDIRS); do \
-        $(MAKE) -C $$dir; 
+                $(MAKE) -C $$dir -f Makefile $@; \
         done
