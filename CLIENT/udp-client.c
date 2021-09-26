@@ -186,7 +186,7 @@ for (i=1; i<=total_frame;i++)
    fptr = fopen(filename, "rb");
    
    if((f_size % BUF_SIZE) !=0)
-     { total_frame = (f_size/BUF_SIZE)+1;}//calculating the total frames by dividing the file size with the buffer and adding +1 if rem is not 0
+      total_frame = (f_size/BUF_SIZE)+1;//calculating the total frames by dividing the file size with the buffer and adding +1 if rem is not 0
    else 
       total_frame= (f_size/BUF_SIZE);
       
