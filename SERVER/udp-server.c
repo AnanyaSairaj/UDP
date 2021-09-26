@@ -239,7 +239,7 @@ int main( int argc, char *argv[])//accept the arguments
        
       recvfrom(sock, &(ack_num), sizeof(ack_num), 0, (struct sockaddr *) &client, (socklen_t *) &length);
       resend_frame++;//increment the resend value for each time it is resent
-      drop_frame++
+      drop_frame++;
       if(resend_frame==20){
       
       t_out_flag=1;//set flag as 1 when it reaches the limit and break
