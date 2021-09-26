@@ -6,10 +6,10 @@ TARGET = udp-server udp-client
 
 all: $(TARGET)
 	
-udp-server: 
+server:SERVER/udp-server.c
 	$(CC) $(CFLAGS) -o udp-server udp-server.c 
 
-udp-client: 
+client:CLIENT/udp-client.c 
 	$(CC) $(CFLAGS) -o udp-client udp-client.c 
 
 clean:
