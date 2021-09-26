@@ -1,6 +1,8 @@
-CC =gcc
-CFLAGS= -Wall -Werror
-client: $(CLIENT)/udp-client.c 
-	$(CC) $(CFLAGS) -o udp-client.o -c $(CLIENT)/udp-client.c
+SUBDIRS = CLIENT SERVER
+
+subdirs:
+	for dir in $(SUBDIRS); do\
+	$(MAKE) -C $$dir; \
+	done 
 	
 
