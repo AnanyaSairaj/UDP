@@ -47,6 +47,6 @@ The client and server have been tested to reliably transfer files up to 100 MB i
 
 ## Authors
 * Ananya Sairaj
-## License
+
 
 
