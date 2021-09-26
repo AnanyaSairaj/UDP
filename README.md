@@ -17,6 +17,7 @@ To implement the reliabilty required of us to the inherently unreliable UDP, we 
 3-Then it transmit the frame one by one with an iteration comparing it to the total frames calculated ,receives the acknowledgement and retransmits if the frame id does not match.
 4-It breaks out of the loop if the number of time resent exceeds the limit specified.
 5-If the total number of frames have been sent and the acknowledgemnts for them have been received then it displays a "SUCCESSFULLY SENT" message.
+
 6- Vice versa is applicable for the put case
 
 This is how basic reliablility is implemented for the file transfer using the  STOP-AND-WAIT protocol.
