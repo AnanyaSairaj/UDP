@@ -1,4 +1,4 @@
-TARGET=client server 
+TARGET= client server 
 normal: $(TARGET)
 client: client.c
     gcc -Wall udp-client.c -o client
