@@ -57,7 +57,7 @@ int main( int argc, char *argv[])//accept the arguments
     
    struct sockaddr_in server;
    struct sockaddr_in client;
-   struct stat st;
+   //struct stat st;
    struct frame_b frame;
    struct timeval t_out = {0, 0};
  
@@ -70,7 +70,7 @@ int main( int argc, char *argv[])//accept the arguments
    
    ssize_t n;//ssizet for non zero values 
    ssize_t length;
-   off_t filesize;
+   
    long int ack_num=0;
    int ack_send=0;
    int sock;
@@ -239,10 +239,10 @@ int main( int argc, char *argv[])//accept the arguments
        
       recvfrom(sock, &(ack_num), sizeof(ack_num), 0, (struct sockaddr *) &client, (socklen_t *) &length);
       resend_frame++;//increment the resend value for each time it is resent
-      
+      drop_frame++
       if(resend_frame==20){
       
-      t_out_flag==1;//set flag as 1 when it reaches the limit and break
+      t_out_flag=1;//set flag as 1 when it reaches the limit and break
       break;
       }
        }
