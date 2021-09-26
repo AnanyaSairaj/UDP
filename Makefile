@@ -1,8 +1,8 @@
 CC =cc
 normal: $(TARGET)
-client: udp-client.c 
+client:  
 	gcc -Wall -Werror udp-client.c -o client
-server: udp-server.c
+server: 
 	gcc -Wall -Werror udp-server.c -o server
 clean:
 	$(RM) $(TARGET)		
