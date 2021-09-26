@@ -1,8 +1,10 @@
-TARGET= client server 
+TARGET=client server 
+CC=gcc
+CFLAGS= -Wall -Wextra -g
 normal: $(TARGET)
 client: udp-client.c
-    gcc -Wall udp-client.c -o client
-server: udp-server.c
-    gcc -Wall udp-server.c -o server
+    $(CC) $(CFLAGS) udp-client.c -o client
+server: server.c
+    $(CC) $(CFLAGS) udp-server.c -o server
 clean:
     $(RM) $(TARGET)
