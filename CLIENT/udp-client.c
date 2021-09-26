@@ -306,12 +306,11 @@ setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char *)&t_out, sizeof(struct timeval)
     //}
     
     if(n==1)
-       
-     {  printf("CLIENT: THe file has been deleted");}
+	    printf("CLIENT: THe file has been deleted");
      
      
      else 
-     printf("filename is invalid");
+	     printf("filename is invalid");
        }
     
       
